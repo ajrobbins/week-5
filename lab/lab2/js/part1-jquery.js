@@ -169,5 +169,37 @@ var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/ton
 // the function passed to `ready` until the HTML document is fully loaded and all scripts have
 // been interpreted. It is, therefore, an example of asynchronous behavior.
 $(document).ready(function() {
-  // Do your stuff here
+  $("#text-label1").text("Lat:");
+  $("#text-input1").val("39.948");
+  $("#text-label2").text("Lon:");
+  $("#text-input2").val("-75.165989");
+  $("#text-label3").text("Description:");
+  $("#text-input3").val("235 S 15th St");
+  $("#number-label").text("Input age here:");
+  $("#numeric-input").val(22);
+  $("#checkbox-label1").text("Check me out");
+  $("cbox-input1").val("checked");
+  var read = function () {
+    return {name: $("#text-input1").val()};
+  };
+
+  $( "button" ).click(function() {
+    console.log(read()) ;
+    var addMarker = L.circle([lat, lon], 500, {
+      color: $("#color-input").val(),
+      fillColor: $("#color-input").val(),
+      fillOpacity: 0.5,
+    }).addTo(map);
+    addMarker.bindPopup("Area where I live");
+  });
+
+  var lat = Number($("#text-input1").val());
+  console.log(lat);
+  var lon = Number($("#text-input2").val());
+  console.log(lon);
+
+
+
+
+
 });
